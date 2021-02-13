@@ -1,9 +1,9 @@
 package org.cana.resources.game.mappers;
 
-import org.cana.game.service.dtos.CreateGameDto;
-import org.cana.game.service.repository.daos.Games;
 import org.cana.resources.game.models.CreateGameModel;
 import org.cana.resources.game.models.GameModel;
+import org.cana.services.game.dtos.CreateGameDto;
+import org.cana.services.game.repository.daos.Games;
 
 public interface GameMapper {
 

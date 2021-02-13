@@ -1,10 +1,6 @@
 package org.cana.resources.game;
 
 import org.cana.dtos.ErrorMsgDto;
-import org.cana.game.service.GameService;
-import org.cana.game.service.dtos.CreateGameDto;
-import org.cana.game.service.repository.daos.Games;
-
 import org.cana.resources.game.mappers.GameMapper;
 import org.cana.resources.game.models.CreateGameModel;
 import org.cana.resources.game.models.CreateGameResModel;
@@ -21,6 +17,9 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
+import org.cana.services.game.GameService;
+import org.cana.services.game.dtos.CreateGameDto;
+import org.cana.services.game.repository.daos.Games;
 import org.jboss.resteasy.annotations.jaxrs.PathParam;
 
 @Path("/games")
