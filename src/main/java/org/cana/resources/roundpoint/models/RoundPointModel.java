@@ -9,5 +9,5 @@ import javax.validation.constraints.NotEmpty;
 public class RoundPointModel {
     @NotBlank(message = "Pokkar.Api.{0}.{1}.GamePoint.IsNull")
     @NotEmpty(message = "Pokkar.Api.{0}.{1}.GamePoint.IsEmpty")
-    private String point;
+    private Long point;
 }

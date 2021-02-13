@@ -1,10 +1,8 @@
 package org.cana.resources.roundpoint.mappers;
 
-import com.googlecode.jmapper.JMapper;
-import org.cana.gameplayer.service.repository.daos.GamePlayer;
-import org.cana.resources.gameplayer.models.GamePlayerModel;
+
 import org.cana.resources.roundpoint.models.RoundPointModel;
-import org.cana.roundpoint.service.dtos.RoundPointDto;
+import org.cana.services.roundpoint.dtos.RoundPointDto;
 
 import javax.enterprise.context.ApplicationScoped;
 

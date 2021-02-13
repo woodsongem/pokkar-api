@@ -1,6 +1,6 @@
 package org.cana.handlers.exceptions;
 
-import org.cana.models.ErrorMessageModel;
+import org.cana.resources.models.ErrorMessageModel;
 
 import javax.inject.Provider;
 import javax.validation.Configuration;

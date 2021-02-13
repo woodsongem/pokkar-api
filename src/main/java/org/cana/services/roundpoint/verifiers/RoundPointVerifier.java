@@ -7,4 +7,10 @@ import java.util.List;
 
 public interface RoundPointVerifier {
     List<ErrorMsgDto> verifyCreateRoundPoint(RoundPointDto roundPointDto);
+
+    List<ErrorMsgDto> isGameIdValid(RoundPointDto roundPointDto);
+
+    List<ErrorMsgDto> isGamePlayerIdValid(RoundPointDto roundPointDto);
+
+    List<ErrorMsgDto> isGameRoundIdValid(RoundPointDto roundPointDto);
 }

@@ -1,12 +1,12 @@
 package org.cana.resources.gameplayer;
 
 import org.cana.dtos.ErrorMsgDto;
-import org.cana.gameplayer.service.GamePlayerService;
-import org.cana.gameplayer.service.dtos.GamePlayerDto;
 import org.cana.resources.gameplayer.mappers.GamePlayerMapper;
 import org.cana.resources.gameplayer.models.CreateGamePlayerModel;
 import org.cana.resources.gameplayer.models.CreateGamePlayerResModel;
 import org.cana.resources.gameplayer.models.GamePlayerModel;
+import org.cana.services.gameplayer.GamePlayerService;
+import org.cana.services.gameplayer.dtos.GamePlayerDto;
 import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
 import org.jboss.resteasy.annotations.jaxrs.PathParam;
 

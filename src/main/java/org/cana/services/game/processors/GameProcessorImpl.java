@@ -1,13 +1,14 @@
 package org.cana.services.game.processors;
 
 import org.cana.dtos.ErrorMsgDto;
-import org.cana.gameplayer.service.repository.GamePlayerRepository;
-import org.cana.gameplayer.service.repository.GameRoundRepository;
-import org.cana.gameplayer.service.repository.daos.GamePlayer;
-import org.cana.gameplayer.service.repository.daos.GameRound;
+
 import org.cana.services.game.dtos.CreateGameDto;
 import org.cana.services.game.repository.GameRepository;
 import org.cana.services.game.repository.daos.Games;
+import org.cana.services.gameplayer.repository.GamePlayerRepository;
+import org.cana.services.gameplayer.repository.GameRoundRepository;
+import org.cana.services.gameplayer.repository.daos.GamePlayer;
+import org.cana.services.gameplayer.repository.daos.GameRound;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;

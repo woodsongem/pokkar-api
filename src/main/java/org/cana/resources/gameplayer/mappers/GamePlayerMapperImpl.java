@@ -1,10 +1,10 @@
 package org.cana.resources.gameplayer.mappers;
 
 import com.googlecode.jmapper.JMapper;
-import org.cana.gameplayer.service.dtos.GamePlayerDto;
-import org.cana.gameplayer.service.repository.daos.GamePlayer;
 import org.cana.resources.gameplayer.models.CreateGamePlayerModel;
 import org.cana.resources.gameplayer.models.GamePlayerModel;
+import org.cana.services.gameplayer.dtos.GamePlayerDto;
+import org.cana.services.gameplayer.repository.daos.GamePlayer;
 
 import javax.enterprise.context.ApplicationScoped;
 import java.util.HashSet;

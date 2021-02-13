@@ -50,7 +50,7 @@ public class GamePlayerServiceImpl implements GamePlayerService {
 
     @Override
     public List<GamePlayer> getGamePlayer(String gameId) {
-        int parsedGameId = Integer.parseInt(gameId);
+        Long parsedGameId = Long.parseLong(gameId);
         return gamePlayerRepository.findByIdAndIsActive(parsedGameId);
     }
 }

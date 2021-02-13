@@ -2,10 +2,10 @@ package org.cana.services.game.processors;
 
 import com.googlecode.jmapper.JMapper;
 import com.googlecode.jmapper.api.JMapperAPI;
-import org.cana.gameplayer.service.repository.daos.GamePlayer;
-import org.cana.gameplayer.service.repository.daos.GameRound;
 import org.cana.services.game.dtos.CreateGameDto;
 import org.cana.services.game.repository.daos.Games;
+import org.cana.services.gameplayer.repository.daos.GamePlayer;
+import org.cana.services.gameplayer.repository.daos.GameRound;
 
 import javax.enterprise.context.ApplicationScoped;
 

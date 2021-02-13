@@ -1,8 +1,8 @@
 package org.cana.services.gameplayer.mappers;
 
 import com.googlecode.jmapper.JMapper;
-import org.cana.gameplayer.service.repository.daos.GamePlayer;
 import org.cana.services.gameplayer.dtos.GamePlayerDto;
+import org.cana.services.gameplayer.repository.daos.GamePlayer;
 
 import javax.enterprise.context.ApplicationScoped;
 
