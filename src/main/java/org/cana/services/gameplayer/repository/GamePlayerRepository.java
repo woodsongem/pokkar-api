@@ -9,8 +9,7 @@ import java.util.List;
 @ApplicationScoped
 public class GamePlayerRepository implements PanacheRepository<GamePlayer>
 {
-    public List<GamePlayer> findByIdAndIsActive(Long gameId)
-    {
-        return  list("gameid= ?1 and isactive=true",gameId);
+    public List<GamePlayer> findByIdAndIsActive(Long playerId) {
+        return  list("id= ?1 and isactive=true",playerId);
     }
 }

@@ -19,8 +19,8 @@ public class RoundPointProcessorMapperImpl implements RoundPointProcessorMapper 
     RoundPointProcessorMapperImpl() {
         JMapperAPI roundPointMapperApi = new JMapperAPI()
                 .add(mappedClass(RoundPointDto.class)
-                        .add(attribute("roundId").value("parsedRoundId"))
-                        .add(attribute("playerId").value("parsedPlayerId"))
+                        .add(attribute("roundId").value("roundId"))
+                        .add(attribute("playerId").value("playerId"))
                         .add(attribute("point").value("point"))
                         .add(attribute("createdBy").value("createdBy"))
                         .add(attribute("createdOn").value("createdOn"))

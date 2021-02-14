@@ -5,7 +5,7 @@ import com.googlecode.jmapper.api.JMapperAPI;
 import org.cana.services.game.dtos.CreateGameDto;
 import org.cana.services.game.repository.daos.Games;
 import org.cana.services.gameplayer.repository.daos.GamePlayer;
-import org.cana.services.gameplayer.repository.daos.GameRound;
+import org.cana.services.lap.repository.daos.GameLap;
 
 import javax.enterprise.context.ApplicationScoped;
 
@@ -17,7 +17,7 @@ public class GameProcessorMapperImpl implements GameProcessorMapper {
 
     JMapper<Games, CreateGameDto> gamesMapper;
     JMapper<GamePlayer, CreateGameDto> gamePlayerMapper;
-    JMapper<GameRound, CreateGameDto> gameRoundMapper;
+    JMapper<GameLap, CreateGameDto> gameRoundMapper;
 
     GameProcessorMapperImpl() {
         gamesMapper = new JMapper<>(Games.class, CreateGameDto.class);
@@ -31,7 +31,7 @@ public class GameProcessorMapperImpl implements GameProcessorMapper {
         gamePlayerMapper = new JMapper<>(GamePlayer.class, CreateGameDto.class, gamePlayerMapperAPI);
 
         JMapperAPI gameRoundMapperAPI = new JMapperAPI()
-                .add(mappedClass(GameRound.class)
+                .add(mappedClass(GameLap.class)
                         .add(attribute("gameId").value("id"))
                         .add(attribute("gamePlayerId").value("gamePlayerId"))
                         .add(attribute("createdBy").value("createdBy"))
@@ -39,7 +39,7 @@ public class GameProcessorMapperImpl implements GameProcessorMapper {
                         .add(attribute("modifiedBy").value("modifiedBy"))
                         .add(attribute("modifiedOn").value("modifiedOn")));
 
-        gameRoundMapper = new JMapper<>(GameRound.class, CreateGameDto.class,gameRoundMapperAPI);
+        gameRoundMapper = new JMapper<>(GameLap.class, CreateGameDto.class,gameRoundMapperAPI);
     }
 
     @Override
@@ -53,7 +53,7 @@ public class GameProcessorMapperImpl implements GameProcessorMapper {
     }
 
     @Override
-    public GameRound mapGameRound(CreateGameDto createGameDto) {
+    public GameLap mapGameRound(CreateGameDto createGameDto) {
         return gameRoundMapper.getDestination(createGameDto);
     }
 }

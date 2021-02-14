@@ -4,10 +4,9 @@ import org.cana.dtos.ErrorMsgDto;
 import org.cana.services.game.dtos.GameStatus;
 import org.cana.services.game.repository.GameRepository;
 import org.cana.services.gameplayer.repository.GamePlayerRepository;
-import org.cana.services.gameplayer.repository.GameRoundRepository;
+import org.cana.services.lap.repository.GameLapRepository;
 import org.cana.services.roundpoint.dtos.RoundPointDto;
 import org.cana.services.roundpoint.errorcodes.RoundPointErrorCodes;
-import org.cana.services.roundpoint.repository.RoundPointRepository;
 import org.cana.services.utilities.PokkarServiceUtility;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -26,7 +25,7 @@ public class RoundPointVerifierImpl implements RoundPointVerifier {
     GamePlayerRepository gamePlayerRepository;
 
     @Inject
-    GameRoundRepository gameRoundRepository;
+    GameLapRepository gameLapRepository;
 
     @Inject
     RoundPointErrorCodes roundPointErrorCodes;
@@ -59,31 +58,32 @@ public class RoundPointVerifierImpl implements RoundPointVerifier {
     public List<ErrorMsgDto> isGameIdValid(RoundPointDto roundPointDto) {
         var skippedStatus = Arrays.asList(GameStatus.DELETED);
         var game = gameRepository.findByIdAndStatusNotIn(roundPointDto.getParsedGameId(), skippedStatus);
-        if (game == null) {
+        if (game == null || game.size() == 0) {
             return PokkarServiceUtility.getErrorMessages(roundPointErrorCodes.getGetGameIdNotFound(), "game id not found");
         }
+        roundPointDto.setGames(game.get(0));
         return Collections.emptyList();
     }
 
     @Override
     public List<ErrorMsgDto> isGamePlayerIdValid(RoundPointDto roundPointDto) {
-        var gamePlayer = gamePlayerRepository.findByIdAndIsActive(roundPointDto.getParsedPlayerId()).stream().findFirst();
-        if (gamePlayer == null || gamePlayer.isEmpty()) {
+        var gamePlayer = gamePlayerRepository.findByIdAndIsActive(roundPointDto.getParsedPlayerId());
+        if (gamePlayer == null || gamePlayer.isEmpty() || gamePlayer.size() == 0) {
             return PokkarServiceUtility.getErrorMessages(roundPointErrorCodes.getGamePlayerIdNotFound(), "game player id not found");
         }
 
-        roundPointDto.setGamePlayer(gamePlayer.get());
+        roundPointDto.setGamePlayer(gamePlayer.get(0));
         return Collections.emptyList();
     }
 
     @Override
     public List<ErrorMsgDto> isGameRoundIdValid(RoundPointDto roundPointDto) {
-        var gameRound = gameRoundRepository.findByIdAndGameidAndGameplayerid(roundPointDto.getParsedRoundId(), roundPointDto.getParsedGameId(), roundPointDto.getParsedPlayerId());
-        if (gameRound == null || gameRound.isEmpty()) {
+        var gameLap = gameLapRepository.findByIdAndGameidAndGameplayerid(roundPointDto.getParsedRoundId(), roundPointDto.getParsedGameId(), roundPointDto.getParsedPlayerId());
+        if (gameLap == null || gameLap.isEmpty()) {
             return PokkarServiceUtility.getErrorMessages(roundPointErrorCodes.getGameRoundIdNotFound(), "game round id not found");
         }
 
-        roundPointDto.setGameRound(gameRound.get(0));
+        roundPointDto.setGameRound(gameLap.get(0));
         return Collections.emptyList();
     }
 }

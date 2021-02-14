@@ -20,14 +20,21 @@ public class RoundPointProcessorImpl implements RoundPointProcessor {
 
     @Override
     public List<ErrorMsgDto> processCreateRoundPoint(RoundPointDto roundPointDto) {
-        return null;
+
+        List<ErrorMsgDto> errors = createRoundPoint(roundPointDto);
+        if(!errors.isEmpty())
+        {
+            return errors;
+        }
+
+        return Collections.emptyList();
     }
 
     @Override
     public List<ErrorMsgDto> createRoundPoint(RoundPointDto roundPointDto) {
         RoundPoint roundPoint = roundPointProcessorMapper.mapRoundPoint(roundPointDto);
         roundPoint.setIsActive(true);
-        roundPointRepository.persist(roundPoint);
+        roundPointRepository.persistAndFlush(roundPoint);
         roundPointDto.setId(roundPoint.getId());
         return Collections.emptyList();
     }

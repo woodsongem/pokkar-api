@@ -1,4 +1,4 @@
-package org.cana.services.gameplayer.repository.daos;
+package org.cana.services.lap.repository.daos;
 
 import com.googlecode.jmapper.annotations.JMap;
 import lombok.Data;
@@ -10,7 +10,7 @@ import java.util.Date;
 
 @Entity
 @Data
-public class GameRound {
+public class GameLap {
     @JMap
     @Id
     @GeneratedValue

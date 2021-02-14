@@ -15,9 +15,9 @@ public class RoundPointResourceMapperImpl implements  RoundPointResourceMapper {
     }
 
     @Override
-    public RoundPointDto mapRoundPointDto(String gameId, String playerId, String roundId, RoundPointModel roundPointModel) {
+    public RoundPointDto mapRoundPointDto(String gameId, String playerId, String lapId, RoundPointModel roundPointModel) {
         RoundPointDto roundPointDto= new RoundPointDto();
-        roundPointDto.setRoundId(roundId);
+        roundPointDto.setRoundId(lapId);
         roundPointDto.setGameId(gameId);
         roundPointDto.setPlayerId(playerId);
         roundPointDto.setPoint(roundPointModel.getPoint());

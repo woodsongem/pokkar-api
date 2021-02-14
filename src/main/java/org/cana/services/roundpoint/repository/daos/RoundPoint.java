@@ -20,7 +20,7 @@ public class RoundPoint {
     @JMap
     private Long playerId;
     @JMap
-    private Long point;
+    private String point;
     @JMap
     private String createdBy;
     @JMap
