@@ -17,6 +17,7 @@ import org.jboss.resteasy.annotations.jaxrs.PathParam;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
@@ -30,6 +31,7 @@ import java.util.List;
 @Path("/games")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
+
 public class RoundPointResource {
 
     @Inject
@@ -66,7 +68,7 @@ public class RoundPointResource {
                                             @NotEmpty(message = LapErrorCodes.gameLapIdIsNull )
                                             @Pattern(regexp = "[0-9]+", message = LapErrorCodes.gameLapIdNotNumber)
                                             @PathParam String lapId,
-                                            @RequestBody RoundPointModel roundPointModel) {
+                                            @Valid RoundPointModel roundPointModel) {
         RoundPointDto roundPointDto = roundPointResourceMapper.mapRoundPointDto(gameId, playerId, lapId, roundPointModel);
         List<ErrorMsgDto> errors = roundPointService.add(roundPointDto);
         RoundPointResModel roundPointResModel = new RoundPointResModel();
